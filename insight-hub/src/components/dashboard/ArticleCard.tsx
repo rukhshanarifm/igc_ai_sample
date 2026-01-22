@@ -1,12 +1,13 @@
+import { memo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Clock, 
-  ExternalLink, 
-  Bookmark, 
+import {
+  Clock,
+  ExternalLink,
+  Bookmark,
   BookmarkCheck,
-  Shield 
+  Shield
 } from "lucide-react";
 import type { ArticleSummary } from "@/types/dashboard";
 
@@ -16,7 +17,7 @@ interface ArticleCardProps {
   onToggleBookmark?: (articleId: string) => void;
 }
 
-export function ArticleCard({ article, isBookmarked = false, onToggleBookmark }: ArticleCardProps) {
+export const ArticleCard = memo(function ArticleCard({ article, isBookmarked = false, onToggleBookmark }: ArticleCardProps) {
   const getSentimentStyles = () => {
     switch (article.sentiment) {
       case "positive":
@@ -110,4 +111,4 @@ export function ArticleCard({ article, isBookmarked = false, onToggleBookmark }:
       </CardContent>
     </Card>
   );
-}
+});

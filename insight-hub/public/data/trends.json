@@ -1,22 +1,46 @@
 {
   "sentimentTrends": [
     {
-      "date": "2025-12-31",
-      "positive": 24,
-      "negative": 22,
-      "neutral": 0
+      "date": "2026-01-15",
+      "positive": 45,
+      "negative": 38,
+      "neutral": 12
+    },
+    {
+      "date": "2026-01-16",
+      "positive": 52,
+      "negative": 41,
+      "neutral": 15
+    },
+    {
+      "date": "2026-01-17",
+      "positive": 48,
+      "negative": 44,
+      "neutral": 18
+    },
+    {
+      "date": "2026-01-18",
+      "positive": 56,
+      "negative": 50,
+      "neutral": 14
     },
     {
       "date": "2026-01-19",
       "positive": 71,
       "negative": 74,
-      "neutral": 0
+      "neutral": 16
+    },
+    {
+      "date": "2026-01-20",
+      "positive": 65,
+      "negative": 68,
+      "neutral": 13
     },
     {
       "date": "2026-01-21",
       "positive": 68,
       "negative": 59,
-      "neutral": 0
+      "neutral": 19
     }
   ]
 }

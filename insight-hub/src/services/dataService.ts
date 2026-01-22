@@ -23,30 +23,36 @@ export interface InsightsData {
  * DataService class for loading and caching dashboard data
  */
 export class DataService {
-  private static articlesCache: ArticleSummary[] | null = null;
-  private static kpisCache: KPI[] | null = null;
-  private static trendsCache: TrendData | null = null;
-  private static insightsCache: InsightsData | null = null;
-
   /**
    * Load all articles from JSON file
+   * Note: Removed static caching - React Query handles caching for us
    */
   static async loadArticles(): Promise<ArticleSummary[]> {
-    if (this.articlesCache) {
-      return this.articlesCache;
-    }
-
+    console.log('Fetching articles from /data/articles.json...');
     try {
-      const response = await fetch('/data/articles.json');
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
+      const response = await fetch('/data/articles.json', {
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      console.log('Response status:', response.status, response.statusText);
+
       if (!response.ok) {
         throw new Error(`Failed to load articles: ${response.statusText}`);
       }
 
       const data = await response.json();
-      this.articlesCache = data.articles || [];
-      return this.articlesCache;
+      console.log('Parsed JSON data:', { hasArticles: !!data.articles, articlesLength: data.articles?.length });
+
+      const articles = data.articles || [];
+      console.log(`✅ Loaded ${articles.length} articles successfully`);
+      return articles;
     } catch (error) {
-      console.error('Error loading articles:', error);
+      console.error('❌ Error loading articles:', error);
+      console.error('Error details:', { name: (error as Error).name, message: (error as Error).message });
       // Return empty array on error to prevent crashes
       return [];
     }
@@ -56,10 +62,6 @@ export class DataService {
    * Load all KPIs from JSON file
    */
   static async loadKPIs(): Promise<KPI[]> {
-    if (this.kpisCache) {
-      return this.kpisCache;
-    }
-
     try {
       const response = await fetch('/data/kpis.json');
       if (!response.ok) {
@@ -67,8 +69,7 @@ export class DataService {
       }
 
       const data = await response.json();
-      this.kpisCache = data.kpis || [];
-      return this.kpisCache;
+      return data.kpis || [];
     } catch (error) {
       console.error('Error loading KPIs:', error);
       return [];
@@ -79,10 +80,6 @@ export class DataService {
    * Load trend data from JSON file
    */
   static async loadTrends(): Promise<TrendData> {
-    if (this.trendsCache) {
-      return this.trendsCache;
-    }
-
     try {
       const response = await fetch('/data/trends.json');
       if (!response.ok) {
@@ -90,8 +87,8 @@ export class DataService {
       }
 
       const data = await response.json();
-      this.trendsCache = data;
-      return this.trendsCache;
+      console.log('✅ Loaded trends data:', data);
+      return data;
     } catch (error) {
       console.error('Error loading trends:', error);
       return {
@@ -104,10 +101,6 @@ export class DataService {
    * Load insights and alerts from JSON file
    */
   static async loadInsights(): Promise<InsightsData> {
-    if (this.insightsCache) {
-      return this.insightsCache;
-    }
-
     try {
       const response = await fetch('/data/insights.json');
       if (!response.ok) {
@@ -115,11 +108,10 @@ export class DataService {
       }
 
       const data = await response.json();
-      this.insightsCache = {
+      return {
         insights: data.insights || [],
         alerts: data.alerts || []
       };
-      return this.insightsCache;
     } catch (error) {
       console.error('Error loading insights:', error);
       return {
@@ -169,25 +161,11 @@ export class DataService {
   }
 
   /**
-   * Clear all caches (useful for refreshing data)
-   */
-  static clearCache(): void {
-    DataService.articlesCache = null;
-    DataService.kpisCache = null;
-    DataService.trendsCache = null;
-    DataService.insightsCache = null;
-  }
-
-  /**
-   * Refresh all data (clears cache and reloads)
+   * Refresh all data (React Query handles caching)
    */
   static async refresh(): Promise<void> {
-    DataService.clearCache();
-    await Promise.all([
-      DataService.loadArticles(),
-      DataService.loadKPIs(),
-      DataService.loadTrends(),
-      DataService.loadInsights()
-    ]);
+    // React Query will handle cache invalidation
+    // This method is kept for compatibility but doesn't need to do anything
+    console.log('Refresh requested - React Query will handle cache invalidation');
   }
 }

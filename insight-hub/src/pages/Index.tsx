@@ -16,6 +16,7 @@ import { ArticleDetailModal } from "@/components/dashboard/ArticleDetailModal";
 import { KPITrendChart } from "@/components/dashboard/KPITrendChart";
 import { ExportDialog } from "@/components/dashboard/ExportDialog";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Download, TrendingUp } from "lucide-react";
 import { DataService } from "@/services/dataService";
 import { mockResearchPapers } from "@/data/mockData";
@@ -39,7 +40,7 @@ const Index = () => {
   const [showTrendsChart, setShowTrendsChart] = useState(false);
 
   // Load data using React Query
-  const { data: articles = [], isLoading: articlesLoading } = useQuery({
+  const { data: articles = [], isLoading: articlesLoading, error: articlesError } = useQuery({
     queryKey: ['articles'],
     queryFn: DataService.loadArticles,
     staleTime: 5 * 60 * 1000, // 5 minutes
@@ -51,7 +52,7 @@ const Index = () => {
     staleTime: 5 * 60 * 1000,
   });
 
-  const { data: trendsData, isLoading: trendsLoading } = useQuery({
+  const { data: trendsData, isLoading: trendsLoading, error: trendsError } = useQuery({
     queryKey: ['trends'],
     queryFn: DataService.loadTrends,
     staleTime: 5 * 60 * 1000,
@@ -69,6 +70,13 @@ const Index = () => {
     staleTime: 5 * 60 * 1000,
   });
 
+  // Debug logging - TEMPORARY
+  console.log('=== DASHBOARD DEBUG ===');
+  console.log('Articles loaded:', articles?.length || 0);
+  console.log('Trends data:', trendsData);
+  console.log('Loading states:', { articlesLoading, trendsLoading });
+  console.log('Errors:', { articlesError, trendsError });
+
   // Alert state (from loaded data)
   const [alerts, setAlerts] = useState(insightsData?.alerts || []);
 
@@ -81,35 +89,43 @@ const Index = () => {
 
   // Filter articles based on search and filters
   const filteredArticles = useMemo(() => {
+    // Early return if no filters applied
+    if (!searchQuery && selectedSources.length === 0 && selectedKPIs.length === 0 && !dateRange.from) {
+      return articles;
+    }
+
+    const query = searchQuery ? searchQuery.toLowerCase() : '';
+    const hasSourceFilter = selectedSources.length > 0;
+    const hasKPIFilter = selectedKPIs.length > 0;
+    const hasDateFilter = !!dateRange.from;
+
     return articles.filter((article) => {
-      // Search filter
-      if (searchQuery) {
-        const query = searchQuery.toLowerCase();
-        const matchesSearch = 
-          article.title.toLowerCase().includes(query) ||
-          article.summary.toLowerCase().includes(query) ||
-          article.source.toLowerCase().includes(query);
-        if (!matchesSearch) return false;
+      // Search filter - check all at once
+      if (query) {
+        const titleMatch = article.title.toLowerCase().includes(query);
+        const summaryMatch = article.summary.toLowerCase().includes(query);
+        const sourceMatch = article.source.toLowerCase().includes(query);
+        if (!titleMatch && !summaryMatch && !sourceMatch) return false;
       }
-      
+
       // Source filter
-      if (selectedSources.length > 0 && !selectedSources.includes(article.source)) {
+      if (hasSourceFilter && !selectedSources.includes(article.source)) {
         return false;
       }
-      
+
       // KPI filter
-      if (selectedKPIs.length > 0) {
+      if (hasKPIFilter) {
         const hasMatchingKPI = article.kpiIds.some((id) => selectedKPIs.includes(id));
         if (!hasMatchingKPI) return false;
       }
-      
+
       // Date filter
-      if (dateRange.from) {
+      if (hasDateFilter) {
         const articleDate = new Date(article.publishedAt);
-        if (articleDate < dateRange.from) return false;
+        if (articleDate < dateRange.from!) return false;
         if (dateRange.to && articleDate > dateRange.to) return false;
       }
-      
+
       return true;
     });
   }, [articles, searchQuery, selectedSources, selectedKPIs, dateRange]);
@@ -159,15 +175,20 @@ const Index = () => {
     }
   };
 
-  // Loading state
+  // Loading state - show partial UI while loading
   const isLoading = articlesLoading || kpisLoading || trendsLoading || insightsLoading || statsLoading;
 
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
+        <div className="text-center max-w-md">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading dashboard data...</p>
+          <p className="text-muted-foreground mb-2">Loading dashboard data...</p>
+          <p className="text-xs text-muted-foreground/70">
+            {articlesLoading && "Loading articles... "}
+            {kpisLoading && "Loading KPIs... "}
+            {trendsLoading && "Loading trends... "}
+          </p>
         </div>
       </div>
     );
@@ -199,7 +220,15 @@ const Index = () => {
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Sentiment Chart - Left */}
           <div className="lg:col-span-2">
-            {trendsData && <SentimentChart data={trendsData.sentimentTrends} />}
+            {trendsData?.sentimentTrends && trendsData.sentimentTrends.length > 0 ? (
+              <SentimentChart data={trendsData.sentimentTrends} />
+            ) : (
+              <Card className="glass">
+                <CardContent className="p-6 text-center text-muted-foreground">
+                  <p>No sentiment trend data available</p>
+                </CardContent>
+              </Card>
+            )}
           </div>
 
           {/* Quick Actions - Right */}
