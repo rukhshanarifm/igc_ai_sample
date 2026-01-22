@@ -1,0 +1,107 @@
+{
+  "insights": [
+    {
+      "id": "insight-cluster-3",
+      "title": "Emerging Theme Detected: Nepra, circular debt, Disco",
+      "summary": "Topic cluster with 63 articles identified. Common themes: Nepra, circular debt, Disco. Avg sentiment: -0.82",
+      "type": "recommendation",
+      "confidence": 90,
+      "relatedKpiIds": [
+        "imported-electricity",
+        "td-losses",
+        "circular-debt",
+        "power-sector",
+        "electricity-recovery"
+      ],
+      "createdAt": "2026-01-21T00:00:00Z"
+    },
+    {
+      "id": "insight-cluster-1",
+      "title": "Emerging Theme Detected: FBR, GDP, Disco",
+      "summary": "Topic cluster with 43 articles identified. Common themes: FBR, GDP, Disco. Avg sentiment: -0.61",
+      "type": "recommendation",
+      "confidence": 90,
+      "relatedKpiIds": [
+        "withholding-taxes",
+        "fbr-tax",
+        "tax-to-gdp",
+        "circular-debt",
+        "tax-collection",
+        "direct-taxes"
+      ],
+      "createdAt": "2026-01-21T00:00:00Z"
+    },
+    {
+      "id": "insight-cluster-4",
+      "title": "Emerging Theme Detected: IMF, GDP",
+      "summary": "Topic cluster with 21 articles identified. Common themes: IMF, GDP. Avg sentiment: -0.58",
+      "type": "recommendation",
+      "confidence": 81,
+      "relatedKpiIds": [],
+      "createdAt": "2026-01-21T00:00:00Z"
+    },
+    {
+      "id": "insight-cluster-5",
+      "title": "Emerging Theme Detected: GDP, IPP, IMF",
+      "summary": "Topic cluster with 57 articles identified. Common themes: GDP, IPP, IMF. Avg sentiment: -0.32",
+      "type": "recommendation",
+      "confidence": 90,
+      "relatedKpiIds": [
+        "power-sector",
+        "tax-to-gdp"
+      ],
+      "createdAt": "2026-01-21T00:00:00Z"
+    },
+    {
+      "id": "insight-cluster-0",
+      "title": "Emerging Theme Detected: various topics",
+      "summary": "Topic cluster with 119 articles identified. Common themes: various topics. Avg sentiment: 1.00",
+      "type": "recommendation",
+      "confidence": 90,
+      "relatedKpiIds": [],
+      "createdAt": "2026-01-21T00:00:00Z"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert-negative-circular-debt",
+      "title": "High Negative Coverage for Circular Debt",
+      "description": "100% of recent articles about Circular Debt are negative",
+      "severity": "warning",
+      "status": "new",
+      "kpiId": "circular-debt",
+      "createdAt": "2026-01-21T00:00:00Z",
+      "source": "Sentiment Analysis"
+    },
+    {
+      "id": "alert-negative-power-sector",
+      "title": "High Negative Coverage for Power Sector",
+      "description": "71% of recent articles about Power Sector are negative",
+      "severity": "warning",
+      "status": "new",
+      "kpiId": "power-sector",
+      "createdAt": "2026-01-21T00:00:00Z",
+      "source": "Sentiment Analysis"
+    },
+    {
+      "id": "alert-negative-fbr-tax",
+      "title": "High Negative Coverage for FBR Tax Collection",
+      "description": "86% of recent articles about FBR Tax Collection are negative",
+      "severity": "warning",
+      "status": "new",
+      "kpiId": "fbr-tax",
+      "createdAt": "2026-01-21T00:00:00Z",
+      "source": "Sentiment Analysis"
+    },
+    {
+      "id": "alert-negative-tax-to-gdp",
+      "title": "High Negative Coverage for Tax-to-GDP Ratio",
+      "description": "71% of recent articles about Tax-to-GDP Ratio are negative",
+      "severity": "warning",
+      "status": "new",
+      "kpiId": "tax-to-gdp",
+      "createdAt": "2026-01-21T00:00:00Z",
+      "source": "Sentiment Analysis"
+    }
+  ]
+}

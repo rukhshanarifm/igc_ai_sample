@@ -1,0 +1,292 @@
+{
+  "kpis": [
+    {
+      "id": "td-losses",
+      "name": "T&D Losses",
+      "description": "Transmission and distribution losses in the power sector",
+      "category": "Energy",
+      "keywords": [
+        "T&D loss",
+        "transmission loss",
+        "distribution loss",
+        "line loss"
+      ],
+      "currentScore": 0.009999999776482582,
+      "previousScore": 0.009999999776482582,
+      "trend": "stable",
+      "articleCount": 2,
+      "lastUpdated": "2026-01-21T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2026-01-19",
+          "score": 0.009999999776482582,
+          "articleCount": 1
+        },
+        {
+          "date": "2026-01-21",
+          "score": 0.009999999776482582,
+          "articleCount": 1
+        }
+      ]
+    },
+    {
+      "id": "circular-debt",
+      "name": "Circular Debt",
+      "description": "Circular debt crisis in the power sector",
+      "category": "Energy",
+      "keywords": [
+        "circular debt",
+        "power sector debt"
+      ],
+      "currentScore": 0.5600000023841858,
+      "previousScore": 0.7900000214576721,
+      "trend": "stable",
+      "articleCount": 22,
+      "lastUpdated": "2026-01-21T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2026-01-19",
+          "score": 0.7900000214576721,
+          "articleCount": 11
+        },
+        {
+          "date": "2026-01-21",
+          "score": 0.33000001311302185,
+          "articleCount": 11
+        }
+      ]
+    },
+    {
+      "id": "electricity-recovery",
+      "name": "Electricity Recovery",
+      "description": "Electricity bill recovery and collection rates",
+      "category": "Energy",
+      "keywords": [
+        "electricity recovery",
+        "bill recovery",
+        "power recovery"
+      ],
+      "currentScore": 5.920000076293945,
+      "previousScore": 5.920000076293945,
+      "trend": "stable",
+      "articleCount": 1,
+      "lastUpdated": "2026-01-19T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2026-01-19",
+          "score": 5.920000076293945,
+          "articleCount": 1
+        }
+      ]
+    },
+    {
+      "id": "imported-electricity",
+      "name": "Imported Electricity",
+      "description": "Electricity imported from neighboring countries",
+      "category": "Energy",
+      "keywords": [
+        "imported electricity",
+        "power import",
+        "energy import"
+      ],
+      "currentScore": 4.329999923706055,
+      "previousScore": 4.329999923706055,
+      "trend": "stable",
+      "articleCount": 3,
+      "lastUpdated": "2026-01-19T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2026-01-19",
+          "score": 4.329999923706055,
+          "articleCount": 3
+        }
+      ]
+    },
+    {
+      "id": "power-sector",
+      "name": "Power Sector",
+      "description": "Overall power sector performance and stability",
+      "category": "Energy",
+      "keywords": [
+        "power sector",
+        "electricity sector",
+        "energy sector",
+        "Nepra",
+        "Disco",
+        "IPP"
+      ],
+      "currentScore": 6.349999904632568,
+      "previousScore": 1.0099999904632568,
+      "trend": "up",
+      "articleCount": 31,
+      "lastUpdated": "2026-01-21T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2026-01-19",
+          "score": 5.789999961853027,
+          "articleCount": 18
+        },
+        {
+          "date": "2026-01-21",
+          "score": 7.130000114440918,
+          "articleCount": 13
+        }
+      ]
+    },
+    {
+      "id": "fbr-tax",
+      "name": "FBR Tax Collection",
+      "description": "Federal Board of Revenue tax collection",
+      "category": "Taxation",
+      "keywords": [
+        "FBR",
+        "Federal Board of Revenue",
+        "tax revenue"
+      ],
+      "currentScore": 5.28000020980835,
+      "previousScore": 5.800000190734863,
+      "trend": "stable",
+      "articleCount": 19,
+      "lastUpdated": "2026-01-21T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2025-12-31",
+          "score": 6.150000095367432,
+          "articleCount": 7
+        },
+        {
+          "date": "2026-01-19",
+          "score": 7.079999923706055,
+          "articleCount": 8
+        },
+        {
+          "date": "2026-01-21",
+          "score": 0.11999999731779099,
+          "articleCount": 4
+        }
+      ]
+    },
+    {
+      "id": "tax-to-gdp",
+      "name": "Tax-to-GDP Ratio",
+      "description": "Tax collection as percentage of GDP",
+      "category": "Taxation",
+      "keywords": [
+        "tax-to-GDP",
+        "tax to GDP",
+        "tax GDP ratio"
+      ],
+      "currentScore": 7.210000038146973,
+      "previousScore": 7.929999828338623,
+      "trend": "stable",
+      "articleCount": 11,
+      "lastUpdated": "2026-01-21T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2025-12-31",
+          "score": 0.05000000074505806,
+          "articleCount": 4
+        },
+        {
+          "date": "2026-01-19",
+          "score": 9.90999984741211,
+          "articleCount": 4
+        },
+        {
+          "date": "2026-01-21",
+          "score": 13.180000305175781,
+          "articleCount": 3
+        }
+      ]
+    },
+    {
+      "id": "tax-collection",
+      "name": "Tax Collection",
+      "description": "Overall tax collection performance",
+      "category": "Taxation",
+      "keywords": [
+        "tax collection",
+        "revenue collection",
+        "tax receipts"
+      ],
+      "currentScore": 15.430000305175781,
+      "previousScore": 19.389999389648438,
+      "trend": "stable",
+      "articleCount": 8,
+      "lastUpdated": "2026-01-21T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2025-12-31",
+          "score": 0.05000000074505806,
+          "articleCount": 1
+        },
+        {
+          "date": "2026-01-19",
+          "score": 24.670000076293945,
+          "articleCount": 5
+        },
+        {
+          "date": "2026-01-21",
+          "score": 0.029999999329447746,
+          "articleCount": 2
+        }
+      ]
+    },
+    {
+      "id": "direct-taxes",
+      "name": "Direct Taxes",
+      "description": "Direct taxation revenue",
+      "category": "Taxation",
+      "keywords": [
+        "direct tax",
+        "income tax",
+        "corporate tax"
+      ],
+      "currentScore": 0.17000000178813934,
+      "previousScore": 0.23000000417232513,
+      "trend": "stable",
+      "articleCount": 8,
+      "lastUpdated": "2026-01-21T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2025-12-31",
+          "score": 0.15000000596046448,
+          "articleCount": 3
+        },
+        {
+          "date": "2026-01-19",
+          "score": 0.18000000715255737,
+          "articleCount": 3
+        },
+        {
+          "date": "2026-01-21",
+          "score": 0.20000000298023224,
+          "articleCount": 2
+        }
+      ]
+    },
+    {
+      "id": "withholding-taxes",
+      "name": "Withholding Taxes",
+      "description": "Withholding tax collection",
+      "category": "Taxation",
+      "keywords": [
+        "withholding tax",
+        "WHT",
+        "advance tax"
+      ],
+      "currentScore": 32.11000061035156,
+      "previousScore": 32.11000061035156,
+      "trend": "stable",
+      "articleCount": 1,
+      "lastUpdated": "2026-01-19T00:00:00Z",
+      "historicalData": [
+        {
+          "date": "2026-01-19",
+          "score": 32.11000061035156,
+          "articleCount": 1
+        }
+      ]
+    }
+  ]
+}

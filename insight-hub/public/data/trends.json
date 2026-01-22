@@ -1,0 +1,22 @@
+{
+  "sentimentTrends": [
+    {
+      "date": "2025-12-31",
+      "positive": 24,
+      "negative": 22,
+      "neutral": 0
+    },
+    {
+      "date": "2026-01-19",
+      "positive": 71,
+      "negative": 74,
+      "neutral": 0
+    },
+    {
+      "date": "2026-01-21",
+      "positive": 68,
+      "negative": 59,
+      "neutral": 0
+    }
+  ]
+}
