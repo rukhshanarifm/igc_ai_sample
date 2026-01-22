@@ -5,9 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Set base path for GitHub Pages (uncomment and set if deploying to a subdirectory)
-  // base: mode === 'production' ? '/your-repo-name/' : '/',
-  base: '/insight-hub',
+  // Base path - keep as '/' since Netlify handles the base directory
+  // Only change this if deploying to a subdirectory (e.g., GitHub Pages with a repo name)
+  base: '/',
   
   server: {
     host: "::",

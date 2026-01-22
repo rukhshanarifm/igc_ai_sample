@@ -7,11 +7,11 @@
       "type": "recommendation",
       "confidence": 90,
       "relatedKpiIds": [
-        "imported-electricity",
-        "td-losses",
         "circular-debt",
-        "power-sector",
-        "electricity-recovery"
+        "td-losses",
+        "imported-electricity",
+        "electricity-recovery",
+        "power-sector"
       ],
       "createdAt": "2026-01-21T00:00:00Z"
     },
@@ -22,12 +22,12 @@
       "type": "recommendation",
       "confidence": 90,
       "relatedKpiIds": [
+        "tax-to-gdp",
+        "direct-taxes",
+        "circular-debt",
         "withholding-taxes",
         "fbr-tax",
-        "tax-to-gdp",
-        "circular-debt",
-        "tax-collection",
-        "direct-taxes"
+        "tax-collection"
       ],
       "createdAt": "2026-01-21T00:00:00Z"
     },
@@ -47,8 +47,8 @@
       "type": "recommendation",
       "confidence": 90,
       "relatedKpiIds": [
-        "power-sector",
-        "tax-to-gdp"
+        "tax-to-gdp",
+        "power-sector"
       ],
       "createdAt": "2026-01-21T00:00:00Z"
     },
