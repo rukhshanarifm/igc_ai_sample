@@ -68,28 +68,33 @@ export function KPIFilter({ kpis, selectedKPIs, onKPIsChange }: KPIFilterProps) 
           </div>
           
           <div className="space-y-2 max-h-[300px] overflow-auto">
-            {kpis.map((kpi) => (
-              <div
-                key={kpi.id}
-                className="flex items-center justify-between p-2 rounded-lg hover:bg-secondary/50 cursor-pointer"
-                onClick={() => handleToggle(kpi.id)}
-              >
-                <div className="flex items-center gap-3">
-                  <Checkbox
-                    checked={selectedKPIs.includes(kpi.id)}
-                    onCheckedChange={() => handleToggle(kpi.id)}
-                  />
-                  <div>
-                    <span className="text-sm font-medium">{kpi.name}</span>
-                    <p className="text-xs text-muted-foreground">{kpi.category}</p>
+            {kpis.map((kpi) => {
+              // Round score to 1 decimal place for cleaner display
+              const displayScore = Math.round(kpi.currentScore * 10) / 10;
+              
+              return (
+                <div
+                  key={kpi.id}
+                  className="flex items-center justify-between p-2 rounded-lg hover:bg-secondary/50 cursor-pointer"
+                  onClick={() => handleToggle(kpi.id)}
+                >
+                  <div className="flex items-center gap-3">
+                    <Checkbox
+                      checked={selectedKPIs.includes(kpi.id)}
+                      onCheckedChange={() => handleToggle(kpi.id)}
+                    />
+                    <div>
+                      <span className="text-sm font-medium">{kpi.name}</span>
+                      <p className="text-xs text-muted-foreground">{kpi.category}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className={`h-2 w-2 rounded-full ${getTrendColor(kpi.trend)}`} />
+                    <span className="text-sm font-medium">{displayScore}</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className={`h-2 w-2 rounded-full ${getTrendColor(kpi.trend)}`} />
-                  <span className="text-sm font-medium">{kpi.currentScore}</span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </PopoverContent>
