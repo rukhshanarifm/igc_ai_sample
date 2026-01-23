@@ -38,7 +38,10 @@ export function KPICard({ kpi, onClick }: KPICardProps) {
     return "text-destructive";
   };
 
-  const change = kpi.currentScore - kpi.previousScore;
+  // Round scores to 1 decimal place for cleaner display
+  const currentScore = Math.round(kpi.currentScore * 10) / 10;
+  const previousScore = Math.round(kpi.previousScore * 10) / 10;
+  const change = Math.round((currentScore - previousScore) * 10) / 10;
 
   return (
     <Card
@@ -64,12 +67,12 @@ export function KPICard({ kpi, onClick }: KPICardProps) {
         <div className="space-y-3">
           <div className="flex items-end gap-2">
             <span className={`text-4xl font-bold tracking-tight ${getScoreColor()}`}>
-              {kpi.currentScore}
+              {currentScore}
             </span>
             <span className="text-muted-foreground text-sm mb-1">/100</span>
           </div>
 
-          <Progress value={kpi.currentScore} className="h-2" />
+          <Progress value={currentScore} className="h-2" />
 
           <div className="flex items-center justify-between pt-2 border-t border-border/50">
             <span className="text-xs text-muted-foreground">

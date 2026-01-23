@@ -199,6 +199,17 @@ const Index = () => {
       <Header />
 
       <main className="container px-6 py-6 space-y-6">
+        {/* Last Modified Date */}
+        <div className="flex items-center justify-between px-1">
+          <p className="text-sm text-muted-foreground">
+            Last updated: {new Date().toLocaleString('en-PK', { 
+              dateStyle: 'full', 
+              timeStyle: 'short',
+              timeZone: 'Asia/Karachi'
+            })}
+          </p>
+        </div>
+
         {/* Stats Overview */}
         {stats && <StatsCards stats={stats} />}
 
@@ -216,9 +227,27 @@ const Index = () => {
           onRefresh={handleRefresh}
         />
 
-        {/* Main Content Grid - Row 1 */}
+        {/* Latest Articles - Top Priority */}
         <div className="grid gap-6 lg:grid-cols-3">
-          {/* Sentiment Chart - Left */}
+          <div className="lg:col-span-2">
+            <ArticleFeed 
+              articles={filteredArticles} 
+              bookmarkedIds={bookmarkedIds}
+              onToggleBookmark={handleToggleBookmark}
+            />
+          </div>
+          
+          <div className="lg:col-span-1 space-y-6">
+            <BookmarkedArticles 
+              articles={bookmarkedArticles}
+              onRemoveBookmark={handleToggleBookmark}
+            />
+            <ResearchSection papers={mockResearchPapers} />
+          </div>
+        </div>
+
+        {/* Sentiment Trends */}
+        <div className="grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2">
             {trendsData?.sentimentTrends && trendsData.sentimentTrends.length > 0 ? (
               <SentimentChart data={trendsData.sentimentTrends} />
@@ -231,13 +260,12 @@ const Index = () => {
             )}
           </div>
 
-          {/* Quick Actions - Right */}
           <div className="lg:col-span-1">
             <QuickActions />
           </div>
         </div>
 
-        {/* Main Content Grid - Row 2: AI & Alerts */}
+        {/* AI Insights & Alerts */}
         <div className="grid gap-6 lg:grid-cols-2">
           {insightsData && <AIInsightsPanel insights={insightsData.insights} />}
           <AlertsPanel
@@ -247,13 +275,13 @@ const Index = () => {
           />
         </div>
 
-        {/* KPI Overview */}
+        {/* KPI Performance - Bottom */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold">KPI Performance</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                Real-time tracking of key performance indicators
+                Performance scores (0-100) track trends across policy areas. Higher scores indicate more positive coverage and outcomes.
               </p>
             </div>
             <div className="flex gap-2">
@@ -271,27 +299,6 @@ const Index = () => {
           {showTrendsChart && <KPITrendChart kpis={kpis} />}
 
           <KPIOverview kpis={kpis} onKPIClick={setSelectedKPI} />
-        </div>
-
-        {/* Main Content Grid - Row 3: Articles & Sidebar */}
-        <div className="grid gap-6 lg:grid-cols-3">
-          {/* Article Feed - Left */}
-          <div className="lg:col-span-2">
-            <ArticleFeed 
-              articles={filteredArticles} 
-              bookmarkedIds={bookmarkedIds}
-              onToggleBookmark={handleToggleBookmark}
-            />
-          </div>
-          
-          {/* Sidebar - Right */}
-          <div className="lg:col-span-1 space-y-6">
-            <BookmarkedArticles 
-              articles={bookmarkedArticles}
-              onRemoveBookmark={handleToggleBookmark}
-            />
-            <ResearchSection papers={mockResearchPapers} />
-          </div>
         </div>
       </main>
 
