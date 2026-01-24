@@ -11,11 +11,11 @@
         "distribution loss",
         "line loss"
       ],
-      "currentScore": 0.009999999776482582,
-      "previousScore": 0.009999999776482582,
+      "currentScore": 0.029999999329447746,
+      "previousScore": 0.029999999329447746,
       "trend": "stable",
-      "articleCount": 2,
-      "lastUpdated": "2026-01-21T00:00:00Z",
+      "articleCount": 5,
+      "lastUpdated": "2026-01-24T00:00:00Z",
       "historicalData": [
         {
           "date": "2026-01-19",
@@ -24,6 +24,16 @@
         },
         {
           "date": "2026-01-21",
+          "score": 0.009999999776482582,
+          "articleCount": 1
+        },
+        {
+          "date": "2026-01-23",
+          "score": 0.03999999910593033,
+          "articleCount": 2
+        },
+        {
+          "date": "2026-01-24",
           "score": 0.009999999776482582,
           "articleCount": 1
         }
@@ -38,11 +48,11 @@
         "circular debt",
         "power sector debt"
       ],
-      "currentScore": 0.5600000023841858,
-      "previousScore": 0.7900000214576721,
+      "currentScore": 0.6299999952316284,
+      "previousScore": 0.5,
       "trend": "stable",
-      "articleCount": 22,
-      "lastUpdated": "2026-01-21T00:00:00Z",
+      "articleCount": 42,
+      "lastUpdated": "2026-01-24T00:00:00Z",
       "historicalData": [
         {
           "date": "2026-01-19",
@@ -53,6 +63,16 @@
           "date": "2026-01-21",
           "score": 0.33000001311302185,
           "articleCount": 11
+        },
+        {
+          "date": "2026-01-23",
+          "score": 0.949999988079071,
+          "articleCount": 13
+        },
+        {
+          "date": "2026-01-24",
+          "score": 0.2199999988079071,
+          "articleCount": 7
         }
       ]
     },
@@ -115,11 +135,11 @@
         "Disco",
         "IPP"
       ],
-      "currentScore": 6.349999904632568,
-      "previousScore": 1.0099999904632568,
-      "trend": "up",
-      "articleCount": 31,
-      "lastUpdated": "2026-01-21T00:00:00Z",
+      "currentScore": 6.440000057220459,
+      "previousScore": 3.8499999046325684,
+      "trend": "stable",
+      "articleCount": 56,
+      "lastUpdated": "2026-01-24T00:00:00Z",
       "historicalData": [
         {
           "date": "2026-01-19",
@@ -130,6 +150,16 @@
           "date": "2026-01-21",
           "score": 7.130000114440918,
           "articleCount": 13
+        },
+        {
+          "date": "2026-01-23",
+          "score": 4.230000019073486,
+          "articleCount": 13
+        },
+        {
+          "date": "2026-01-24",
+          "score": 9.0600004196167,
+          "articleCount": 12
         }
       ]
     },
@@ -143,11 +173,11 @@
         "Federal Board of Revenue",
         "tax revenue"
       ],
-      "currentScore": 5.28000020980835,
-      "previousScore": 5.800000190734863,
+      "currentScore": 4.320000171661377,
+      "previousScore": 4.360000133514404,
       "trend": "stable",
-      "articleCount": 19,
-      "lastUpdated": "2026-01-21T00:00:00Z",
+      "articleCount": 24,
+      "lastUpdated": "2026-01-24T00:00:00Z",
       "historicalData": [
         {
           "date": "2025-12-31",
@@ -163,6 +193,11 @@
           "date": "2026-01-21",
           "score": 0.11999999731779099,
           "articleCount": 4
+        },
+        {
+          "date": "2026-01-24",
+          "score": 0.6700000166893005,
+          "articleCount": 5
         }
       ]
     },
@@ -242,11 +277,11 @@
         "income tax",
         "corporate tax"
       ],
-      "currentScore": 0.17000000178813934,
-      "previousScore": 0.23000000417232513,
+      "currentScore": 2.940000057220459,
+      "previousScore": 0.1899999976158142,
       "trend": "stable",
-      "articleCount": 8,
-      "lastUpdated": "2026-01-21T00:00:00Z",
+      "articleCount": 11,
+      "lastUpdated": "2026-01-24T00:00:00Z",
       "historicalData": [
         {
           "date": "2025-12-31",
@@ -262,6 +297,11 @@
           "date": "2026-01-21",
           "score": 0.20000000298023224,
           "articleCount": 2
+        },
+        {
+          "date": "2026-01-24",
+          "score": 10.319999694824219,
+          "articleCount": 3
         }
       ]
     },
