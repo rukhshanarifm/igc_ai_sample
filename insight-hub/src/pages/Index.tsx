@@ -10,7 +10,7 @@ import { FilterBar } from "@/components/dashboard/FilterBar";
 import { AlertsPanel } from "@/components/dashboard/AlertsPanel";
 import { AIInsightsPanel } from "@/components/dashboard/AIInsightsPanel";
 import { QuickActions } from "@/components/dashboard/QuickActions";
-import { BookmarkedArticles } from "@/components/dashboard/BookmarkedArticles";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { KPIDetailModal } from "@/components/dashboard/KPIDetailModal";
 import { ArticleDetailModal } from "@/components/dashboard/ArticleDetailModal";
 import { KPITrendChart } from "@/components/dashboard/KPITrendChart";
@@ -130,9 +130,6 @@ const Index = () => {
     });
   }, [articles, searchQuery, selectedSources, selectedKPIs, dateRange]);
 
-  // Bookmarked articles
-  const bookmarkedArticles = articles.filter((a) => bookmarkedIds.includes(a.id));
-
   const handleToggleBookmark = (articleId: string) => {
     setBookmarkedIds((prev) => {
       const isBookmarked = prev.includes(articleId);
@@ -227,24 +224,25 @@ const Index = () => {
           onRefresh={handleRefresh}
         />
 
-        {/* Latest Articles - Top Priority */}
-        <div className="grid gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <ArticleFeed 
-              articles={filteredArticles} 
+        {/* Main Content Tabs */}
+        <Tabs defaultValue="articles" className="w-full">
+          <TabsList className="mb-4">
+            <TabsTrigger value="articles">Latest Articles</TabsTrigger>
+            <TabsTrigger value="research">Research Papers</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="articles">
+            <ArticleFeed
+              articles={filteredArticles}
               bookmarkedIds={bookmarkedIds}
               onToggleBookmark={handleToggleBookmark}
             />
-          </div>
-          
-          <div className="lg:col-span-1 space-y-6">
-            <BookmarkedArticles 
-              articles={bookmarkedArticles}
-              onRemoveBookmark={handleToggleBookmark}
-            />
+          </TabsContent>
+
+          <TabsContent value="research">
             <ResearchSection papers={mockResearchPapers} />
-          </div>
-        </div>
+          </TabsContent>
+        </Tabs>
 
         {/* Sentiment Trends */}
         <div className="grid gap-6 lg:grid-cols-3">

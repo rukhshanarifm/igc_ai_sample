@@ -12,7 +12,7 @@ interface ArticleFeedProps {
   onToggleBookmark: (articleId: string) => void;
 }
 
-const ARTICLES_PER_PAGE = 20;
+const ARTICLES_PER_PAGE = 9;
 
 export function ArticleFeed({ articles, bookmarkedIds, onToggleBookmark }: ArticleFeedProps) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -59,7 +59,7 @@ export function ArticleFeed({ articles, bookmarkedIds, onToggleBookmark }: Artic
 
     return (
       <>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {paginatedList.map((article) => (
             <ArticleCard
               key={article.id}
